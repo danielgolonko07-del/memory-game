@@ -1,24 +1,28 @@
 const buttons = document.querySelectorAll('.square');
+const grid = document.getElementById('grid');
 let selectedCards = []
 const figures = ["😀", "🤕", "😤", "😩", "🤠", "😛", "😽", "🥰"]
 
+
+
+for (let i = 0; i < 16; i++) {
+    const card = document.createElement('button')
+    card.classList.add('square')
+    card.innerHTML = figures[Math.floor(Math.random() * figures.length)]
+    grid.appendChild(card)
+}
+
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        button.classList.toggle('clicked');
+        button.classList.add('clicked');
 
         setTimeout(() => {
             button.classList.remove('clicked');
-        }, 1000);
+        }, 3000);
 
-        if (button.classList.contains('clicked')) {
-            selectedCards.push(button);
-        }
+        selectedCards.push(button);
 
-        if (selectedCards.length === 2) {
-            if (selectedCards[0].textContent === selectedCards[1].textContent) {
-                selectedCards = [];
-            }
-        }
+        console.log(selectedCards); 
 
     });
 });
