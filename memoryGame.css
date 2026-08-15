@@ -4,16 +4,18 @@ body {
     align-content: center;
     align-items: center;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    background-color: rgb(112, 106, 106);
+    color: white
 }
 
 #grid {
     display: grid;
     grid-template-columns: repeat(4, 70px);
-    grid-template-rows: repeat(4, 70px);
+    grid-template-rows: repeat(auto-fill, 70px);
     gap: 10px;
     width: auto;
-    height: auto;
+    height: 100%;
 }
 
 .clicked {
